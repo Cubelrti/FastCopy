@@ -143,7 +143,7 @@ namespace FastCopy
             foreach (var item in diffFiles)
             {
                 progress++;
-                (sender as BackgroundWorker).ReportProgress(progress / diffFiles.Count * 100, from + item);
+                (sender as BackgroundWorker).ReportProgress(progress * 100 / diffFiles.Count, from + item);
                 Directory.CreateDirectory(System.IO.Path.GetDirectoryName(to + item));
                 File.Copy(from + item, to + item, true);
                 //System.Threading.Thread.Sleep(100);
